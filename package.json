@@ -1,5 +1,12 @@
 {
   "name": "trickle",
+  "description": "data throttle",
+  "keywords": [
+    "data",
+    "throttle",
+    "array",
+    "stream"
+  ],
   "version": "1.0.0",
   "main": "lib/index.js",
   "scripts": {
