@@ -1,19 +1,11 @@
 export default (data, options) => {
   const { rows, ms, onData } = options
-  let released = []
-  let startIndex = 0
+  const d = data.slice()
   const drip = () => {
-    const end = Math.min(data.length, startIndex + rows)
-    const next = data.slice(startIndex, end)
-    released = [
-      ...next,
-    ]
-    if (end === data.length) {
+    onData(d.splice(0, rows))
+    if (!d.length) {
       clearInterval(interval)
-    } else {
-      startIndex += rows
     }
-    onData && onData(released)
   }
   drip()
   const interval = setInterval(drip, ms)
